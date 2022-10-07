@@ -19,7 +19,8 @@
   @include breakpoint($large) {
     float: left;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
+    // opacity: 0.75;
+    opacity: 1;  // jH
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
 
@@ -195,7 +196,7 @@
 
   .author__urls {
     span.label {
-      padding-left: 5px;
+      padding-left: 6px;
     }
   }
 
@@ -299,6 +300,22 @@
 
   li {
     white-space: nowrap;
+
+    // jH
+    i {
+      width: 15px;
+      text-align: center;
+    }
+
+    // jH
+    span.label {
+      opacity: 0.84;
+
+      transition: opacity 0s linear;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 
   a {
@@ -306,7 +323,7 @@
     margin-bottom: 5px;
     padding-right: 5px;
     padding-top: 2px;
-    padding-bottom: 2px;
+    // padding-bottom: 2px;  // jH
     color: inherit;
     font-size: $type-size-5;
     text-decoration: none;

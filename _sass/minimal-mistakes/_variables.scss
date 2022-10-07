@@ -14,9 +14,9 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
+$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Noto Sans KR", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+$monospace: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Lucida Console", "Malgun Gothic", monospace !default;
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
@@ -62,7 +62,7 @@ $light-gray: mix(#fff, $gray, 50%) !default;
 $lighter-gray: mix(#fff, $gray, 90%) !default;
 
 $background-color: #fff !default;
-$code-background-color: #fafafa !default;
+$code-background-color: #f2f2f2 !default;
 $code-background-color-dark: $light-gray !default;
 $text-color: $dark-gray !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
@@ -85,30 +85,56 @@ $yiq-contrasted-threshold: 175 !default;
 $yiq-debug: false !default;
 
 /* brands */
-$behance-color: #1769ff !default;
-$bitbucket-color: #205081 !default;
-$dribbble-color: #ea4c89 !default;
-$facebook-color: #3b5998 !default;
-$flickr-color: #ff0084 !default;
-$foursquare-color: #0072b1 !default;
-$github-color: #171516 !default;
-$gitlab-color: #e24329 !default;
-$instagram-color: #517fa4 !default;
-$keybase-color: #ef7639 !default;
-$lastfm-color: #d51007 !default;
-$linkedin-color: #007bb6 !default;
-$mastodon-color: #2b90d9 !default;
-$pinterest-color: #cb2027 !default;
-$reddit-color: #ff4500 !default;
-$rss-color: #fa9b39 !default;
-$soundcloud-color: #ff3300 !default;
-$stackoverflow-color: #fe7a15 !default;
-$tumblr-color: #32506d !default;
-$twitter-color: #55acee !default;
-$vimeo-color: #1ab7ea !default;
-$vine-color: #00bf8f !default;
-$youtube-color: #bb0000 !default;
-$xing-color: #006567 !default;
+// $behance-color: #1769ff !default;
+// $bitbucket-color: #205081 !default;
+// $dribbble-color: #ea4c89 !default;
+// $facebook-color: #3b5998 !default;
+// $flickr-color: #ff0084 !default;
+// $foursquare-color: #0072b1 !default;
+// $github-color: #171516 !default;
+// $gitlab-color: #e24329 !default;
+// $instagram-color: #517fa4 !default;
+// $keybase-color: #ef7639 !default;
+// $lastfm-color: #d51007 !default;
+// $linkedin-color: #007bb6 !default;
+// $mastodon-color: #2b90d9 !default;
+// $pinterest-color: #cb2027 !default;
+// $reddit-color: #ff4500 !default;
+// $rss-color: #fa9b39 !default;
+// $soundcloud-color: #ff3300 !default;
+// $stackoverflow-color: #fe7a15 !default;
+// $tumblr-color: #32506d !default;
+// $twitter-color: #55acee !default;
+// $vimeo-color: #1ab7ea !default;
+// $vine-color: #00bf8f !default;
+// $youtube-color: #bb0000 !default;
+// $xing-color: #006567 !default;
+
+// jH
+$behance-color: #141414 !default;
+$bitbucket-color: #141414 !default;
+$dribbble-color: #141414 !default;
+$facebook-color: #141414 !default;
+$flickr-color: #141414 !default;
+$foursquare-color: #141414 !default;
+$github-color: #141414 !default;
+$gitlab-color: #141414 !default;
+$instagram-color: #141414 !default;
+$keybase-color: #141414 !default;
+$lastfm-color: #141414 !default;
+$linkedin-color: #141414 !default;
+$mastodon-color: #141414 !default;
+$pinterest-color: #141414 !default;
+$reddit-color: #141414 !default;
+$rss-color: #141414 !default;
+$soundcloud-color: #141414 !default;
+$stackoverflow-color: #141414 !default;
+$tumblr-color: #141414 !default;
+$twitter-color: #141414 !default;
+$vimeo-color: #141414 !default;
+$vine-color: #141414 !default;
+$youtube-color: #141414 !default;
+$xing-color: #141414 !default;
 
 /* links */
 $link-color: mix(#000, $info-color, 20%) !default;
@@ -123,13 +149,13 @@ $notice-background-mix: 80% !default;
 $code-notice-background-mix: 90% !default;
 
 /* syntax highlighting (base16) */
-$base00: #263238 !default;
-$base01: #2e3c43 !default;
+$base00: #303538 !default;  // #263238
+$base01: #42535c !default;
 $base02: #314549 !default;
 $base03: #546e7a !default;
 $base04: #b2ccd6 !default;
-$base05: #eeffff !default;
-$base06: #eeffff !default;
+$base05: #efffff !default;
+$base06: #efffff !default;
 $base07: #ffffff !default;
 $base08: #f07178 !default;
 $base09: #f78c6c !default;
@@ -155,9 +181,9 @@ $max-width: $x-large !default;
    Grid
    ========================================================================== */
 
-$right-sidebar-width-narrow: 200px !default;
-$right-sidebar-width: 300px !default;
-$right-sidebar-width-wide: 400px !default;
+$right-sidebar-width-narrow: 160px !default;  // 200px
+$right-sidebar-width: 200px !default;  // 300px
+$right-sidebar-width-wide: 280px !default;  // 400px
 
 /*
    Other
@@ -169,5 +195,5 @@ $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
 $navicon-width: 1.5rem !default;
 $navicon-height: 0.25rem !default;
-$global-transition: all 0.2s ease-in-out !default;
+$global-transition: all 0.2s ease-out !default;  // ease-in-out
 $intro-transition: intro 0.3s both !default;

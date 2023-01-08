@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hylowaker.github.io/sitemap.xml

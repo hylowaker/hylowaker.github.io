@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 2em 0 0.5em;
+  margin: 2em 0 0.8em;
   line-height: 1.2;
   font-family: $header-font-family;
   font-weight: bold;
@@ -111,10 +111,20 @@ abbr[data-original-title] {
 
 blockquote {
   margin: 2em 1em 2em 0;
-  padding-left: 1em;
-  padding-right: 1em;
-  font-style: italic;
+  padding: 0.5em 1em 0.5em 1em;
+  // padding-left: 1em;
+  // padding-right: 1em;
+  // font-style: italic;
   border-left: 0.25em solid $primary-color;
+
+  // jH
+  >* {
+    opacity: 0.9;
+  }
+
+  >:last-child {
+    margin-bottom: 0 !important;
+  }
 
   cite {
     font-style: italic;
@@ -150,6 +160,12 @@ a {
 
 button:focus {
   @extend %tab-focus;
+}
+
+/* jH details */
+details summary {
+  cursor: pointer;
+  margin-bottom: 1em;
 }
 
 /* code */

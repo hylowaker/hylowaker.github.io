@@ -118,7 +118,7 @@ ADD)
 
 사실 이건 딱 한 번만 만들면 된다. `cni0`가 이미 있으면 아무 작업도 하지 않을 것이다.
 
-이제 가상 인터페이스를 만들어 Pod와 브리지를 연결하자. `$CNI_IFNAME` 인터페이스는 Pod 쪽에, `$host_ifname` 인터페이스는 호스트의 브리지 쪽에 붙인다. 아마 `eth0`-`veth1`과 같은 형태의 veth 쌍이 생성될 것이다.
+이제 가상 인터페이스를 만들어 Pod와 브리지를 연결하자. `$CNI_IFNAME` 인터페이스는 Pod 쪽에, `$host_ifname` 인터페이스는 호스트의 브리지 쪽에 붙인다. 아마 `eth0`-`veth2`과 같은 형태의 veth 쌍이 생성될 것이다.
 
 ```bash
     if [ -f /tmp/last_allocated_ip ]; then
@@ -129,12 +129,13 @@ ADD)
     n=$(($n+1))  # n=2,3,4,... (255를 넘어가면 고장난다)
     echo $n > /tmp/last_allocated_ip
 
-    # veth 쌍 생성 및 활성화
+    # veth 쌍을 생성해 한 쪽은 Pod 네임스페이스에 붙이고,
     host_ifname="veth$n"  # veth2, veth3, veth4, ...
     netns=$(echo $CNI_NETNS | sed "s:/var/run/netns/::")
     ip netns exec $netns ip link add $CNI_IFNAME type veth peer name $host_ifname
     ip netns exec $netns ip link set $CNI_IFNAME up
 
+    # 다른 쪽은 호스트 네임스페이스에 붙인다.
     ip netns exec $netns ip link set $host_ifname netns 1
     ip link set $host_ifname up
     ip link set $host_ifname master cni0
@@ -311,6 +312,8 @@ PING 1.1.1.1 (1.1.1.1): 56 data bytes
 
 일반적인 CNI 플러그인은 각 노드마다 **데몬**이 돌면서 네트워크 세팅을 관리한다. Flannel의 `flanneld`가 대표적인 예시이다. 이 글에선 데몬까지 구현하진 않고, 각 노드마다 직접 명령을 실행하는 식으로 간단히 진행해본다.
 
+여기선 **IPIP 터널링**을 활용했다.
+
 1번 노드에서 실행. 노드 IP는 본인 환경에 맞게 바꾼다.
 
 ```console
@@ -341,7 +344,7 @@ PING 10.240.1.2 (10.240.1.2): 56 data bytes
 64 bytes from 10.240.1.2: seq=2 ttl=255 time=0.537 ms
 ```
 
-여기선 **IPIP 터널링**을 활용했다. 실제 CNI 플러그인은 IPIP, VXLAN, BGP 등의 방식을 활용한다. 근데 아직 내가 공부가 부족한 관계로 설명은 패스. 다음에 기회 될 때 정리해봐야겠다.
+실제 CNI 플러그인은 IPIP 외에도 VXLAN, BGP 등의 방식을 활용한다. 근데 아직 내가 공부가 부족한 관계로 설명은 패스. 다음에 기회 될 때 정리해봐야겠다.
 
 
 이렇게 간단한 형태의 CNI 플러그인을 만들어봤다. 당연한 소리지만 실용적인 면에서는 아무 쓸모가 없다. 그래도 직접 명령어를 치면서 네트워크를 건드려보면 CNI를 더 깊이 이해할 수 있을 것이다.

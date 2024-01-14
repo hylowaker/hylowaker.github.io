@@ -13,7 +13,7 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$serif: Georgia, Times, serif !default;
+$serif: "Noto Serif KR", Georgia, Times, serif !default;
 $sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Noto Sans KR", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
 $monospace: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Lucida Console", "Malgun Gothic", monospace !default;
@@ -64,7 +64,7 @@ $lighter-gray: mix(#fff, $gray, 90%) !default;
 $background-color: #fff !default;
 $code-background-color: #f2f2f2 !default;
 $code-background-color-dark: $light-gray !default;
-$text-color: $darker-gray !default;
+$text-color: #212426 !default;  // $darker-gray !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
 $border-color: $lighter-gray !default;
 $form-background-color: $lighter-gray !default;
@@ -182,8 +182,8 @@ $max-width: $x-large !default;
    ========================================================================== */
 
 $right-sidebar-width-narrow: 160px !default;  // 200px
-$right-sidebar-width: 200px !default;  // 300px
-$right-sidebar-width-wide: 280px !default;  // 400px
+$right-sidebar-width: 220px !default;  // 300px
+$right-sidebar-width-wide: 300px !default;  // 400px
 
 /*
    Other
